@@ -15,16 +15,18 @@ class ArtikelSeeder extends Seeder
     {
         DB::table('artikel')->insert([
             [
-                'judul' => Str::random(10),
-                'isi' => Str::random(30),
-                'slug' => Str::random(10),
-                'tag' => Str::random(20),
+                'artikel_judul' => Str::random(10),
+                'artikel_isi' => Str::random(30),
+                'artikel_slug' => Str::random(10),
+                'artikel_tag' => Str::random(20),
+                'user_id' => '1',
             ],
             [
-                'judul' => Str::random(10),
-                'isi' => Str::random(30),
-                'slug' => Str::random(10),
-                'tag' => Str::random(20),
+                'artikel_judul' => Str::random(10),
+                'artikel_isi' => Str::random(30),
+                'artikel_slug' => Str::random(10),
+                'artikel_tag' => Str::random(20),
+                'user_id' => '1',
             ]
         ]);
     }
