@@ -21,13 +21,16 @@ class ArtikelController extends Controller
     public function insert(Request $request)
     {
         $new_data = ArtikelModel::insert($request->all());
+
         return redirect('/artikel');
     }
 
     public function detail($id)
     {
-        $datatanya = ArtikelModel::detail($id)->first();
-        return view('pertanyaan.detail', compact('data'));
+        $data = ArtikelModel::detail($id)->first();
+        $tag = explode(' ', $data->artikel_tag);
+        // dd($tag);
+        return view('artikel.detail', compact('data'), ['tag' => $tag]);
     }
 
     public function edit($id)
@@ -51,10 +54,15 @@ class ArtikelController extends Controller
         return redirect('/artikel');
     }
 
-
-    public function hapus($id)
+    public function destroy($id)
     {
-        $new_data = ArtikelModel::delete($id);
+        $deleted = ArtikelModel::destroy($id);
+
         return redirect('/artikel');
     }
+    // public function delete($id)
+    // {
+    //     $new_data = ArtikelModel::delete($id);
+    //     return redirect('/artikel');
+    // }
 }

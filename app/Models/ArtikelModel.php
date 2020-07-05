@@ -21,12 +21,13 @@ class ArtikelModel extends Model
     public static function insert($data)
     {
         $slug    = str_replace(" ", "-", strtolower($data['judul']));
-        $tag = str_replace(" ", "-", strtolower($data['tag']));
+        // $tag = str_replace(" ", "-", strtolower($data['tag']));
         $new_data = DB::table('artikel')
             ->insert([
                 'artikel_judul' => $data['judul'],
                 'artikel_isi' => $data['isi'],
-                'artikel_tag' => $tag,
+                // 'artikel_tag' => $tag,
+                'artikel_tag' => $data['tag'],
                 'artikel_slug' => $slug,
                 'user_id' => $data['userid'],
                 'artikel_create' => now()
@@ -48,6 +49,14 @@ class ArtikelModel extends Model
         return $artikel;
     }
 
+    public static function destroy($id)
+    {
+        $deleted = DB::table('artikel')
+            ->where('artikel_id', $id)
+            ->delete();
+
+        return $deleted;
+    }
 
     // public static function update($id, $request)
     // {

@@ -20,7 +20,8 @@
             </div>
             <div class="form-group">
                 <label for="tag">Tag Artikel</label>
-                <textarea name="tag" id="tag" class="form-control" required placeholder="Tag">{{str_replace('-',' ',$data->artikel_tag)}}</textarea>
+                {{-- <textarea name="tag" id="tag" class="form-control" required placeholder="Tag">{{str_replace('-',' ',$data->artikel_tag)}}</textarea> --}}
+                <textarea name="tag" id="tag" class="form-control" required placeholder="Tag">{{$data->artikel_tag}}</textarea>
                 <small class="text-muted">Pemisah Tag adalah (Spasi).</small>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
